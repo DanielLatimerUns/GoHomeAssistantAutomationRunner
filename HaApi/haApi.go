@@ -7,7 +7,7 @@ import (
 )
 
 const haUrl = "http://homeassistant.local:8123/api/"
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIwOGI4MzNlYTM1NmE0MmFlOWFkMDk1NTcyYTdiNDYwOCIsImlhdCI6MTczMTE2NDAzMCwiZXhwIjoyMDQ2NTI0MDMwfQ.PzrIUWGJYR3BKciZShxDhqKjjUn6xPvkdqEUupjmFv8"
+const token = ""
 
 func httpGet(url string) (*http.Response, error) {
 	client := &http.Client{}

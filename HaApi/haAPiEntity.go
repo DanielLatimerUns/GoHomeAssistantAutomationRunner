@@ -14,7 +14,7 @@ type HaEntity struct {
 }
 
 func GetHaEntity(entityId string) HaEntity {
-	var url = haUrl + "states/" + entityId
+	url := haUrl + "states/" + entityId
 
 	resp, err := httpGet(url)
 	handleErr(err)
@@ -27,6 +27,22 @@ func GetHaEntity(entityId string) HaEntity {
 	handleErr(err)
 
 	return entity
+}
+
+func GetAllHaEntities() []HaEntity {
+	url := haUrl + "states"
+
+	resp, err := httpGet(url)
+	handleErr(err)
+
+	body, err := io.ReadAll(resp.Body)
+	handleErr(err)
+
+	var entities []HaEntity
+	err = json.Unmarshal(body, &entities)
+	handleErr(err)
+
+	return entities
 }
 
 func SetHaEntityState(entity HaEntity) {
